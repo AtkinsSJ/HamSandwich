@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>HamSandwich</title>
+		<link rel="icon" type="image/png" href="favicon.ico"/>
+		<style>
+			body {
+				background-color: #f5f5f5;
+				overflow-y: scroll;
+				margin: 8px;
+			}
+			@media (max-width: 599px) {
+				body {
+					margin: 0;
+				}
+			}
+			body > div {
+				max-width: 640px;
+				margin: 8px auto;
+				background-color: white;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flex-row">
+			<span><a href="https://github.com/SpaceManiac/HamSandwich">HamSandwich</a></span>
+		</div>
+		<div>
+			<table id="main">
+			</table>
+			<noscript>JavaScript required.</noscript>
+		</div>
+		<script type="text/json" id="home-meta">{"project_list":["mystic","loonyland","supreme","loonyland2","sleepless"],"project_metadata":{"mystic":{"appdataName":"mystic","hasAssets":false,"installers":[{"file_id":704052,"filename":"mystic_install.exe","kind":"inno","link":"https://hamumu.itch.io/kid-mystic","sha256sum":"c2d618176d23b974c01c00690b6afb0aaebd4c863dfff0bf8b1f66db1bdc2f65"}],"projectName":"mystic","title":"Kid Mystic"},"loonyland":{"appdataName":"loonyland","hasAssets":false,"installers":[{"file_id":702760,"filename":"loonyland_install.EXE","kind":"inno","link":"https://hamumu.itch.io/loonyland-halloween-hill","sha256sum":"cf3cdc555297e41f6c2da61d89815dbbc740d6fc677c83ec6c6e1acfa117de34"},{"file_id":782965,"filename":"loonyland_editor.exe","kind":"nsis","link":"https://hamumu.itch.io/loonyland-halloween-hill","sha256sum":"865550d077e984ca28324aaf4291211aa4009cdad9f2b74144179c6342f2be39"}],"projectName":"loonyland","title":"Loonyland"},"supreme":{"appdataName":"supreme","hasAssets":false,"installers":[{"file_id":700882,"filename":"supreme8_install.exe","kind":"nsis","link":"https://hamumu.itch.io/dr-lunatic-supreme-with-cheese","sha256sum":"1c105ad826be1e0697b5de8483c71ff943d04bce91fe3547b6f355e9bc1c42d4"}],"projectName":"supreme","title":"Supreme With Cheese"},"loonyland2":{"appdataName":"loonyland2","hasAssets":false,"installers":[{"file_id":705653,"filename":"LL2CEinstall.exe","kind":"nsis","link":"https://hamumu.itch.io/loonyland-2-winter-woods","sha256sum":"0806e1615eb94332bf805128d2d3857af420e93ee6f48692eebf17c05e9b14e2"}],"projectName":"loonyland2","title":"Loonyland 2"},"sleepless":{"appdataName":"sleepless","hasAssets":false,"installers":[{"file_id":708909,"filename":"hollow_betainstall.exe","kind":"nsis","link":"https://hamumu.itch.io/sleepless-hollow","sha256sum":"41660802318356fba53a21b4d368e191b3197030fb9e8eb833788f45c01c6f99"}],"projectName":"sleepless","title":"Sleepless Hollow"}}}</script>
+		<script>
+			var metadata = JSON.parse(document.getElementById('home-meta').textContent);
+			var main = document.getElementById('main');
+			for (let key of metadata.project_list) {
+				var tr = document.createElement('tr');
+				var td1 = document.createElement('td');
+				var a1 = document.createElement('a');
+				a1.href = key + '/';
+				var img = document.createElement('img');
+				img.src = key + '/favicon.ico';
+				img.height = 32;
+				var td2 = document.createElement('td');
+				var a2 = document.createElement('a');
+				a2.href = key + '/';
+
+				a1.append(img);
+				td1.append(a1);
+				a2.append(metadata.project_metadata[key].title);
+				td2.append(a2);
+				tr.append(td1, td2);
+				main.append(tr);
+			}
+		</script>
+	</body>
+</html>
